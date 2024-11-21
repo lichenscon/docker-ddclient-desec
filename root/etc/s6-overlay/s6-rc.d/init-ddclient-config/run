@@ -8,7 +8,7 @@ mkdir -p \
 
 # copy default config if not present in /config
 if [[ ! -e /config/ddclient.conf ]]; then
-    if [ -n "$DOMAIN" && -n "$TOKEN_SECRET" ]; then
+    if [ -z "$DOMAIN" && -z "$TOKEN_SECRET" ]; then
       echo "DOMAIN=$DOMAIN TOKEN_SECRET=$TOKEN_SECRET\n Writing custom conf"
       cat /defaults/ddclient-desec.conf | sed "s/[domain]/$DOMAIN/g" | sed "s/[token secret]/$TOKEN_SECRET/g" > /config/ddclient.conf
     else
