@@ -14,7 +14,7 @@ if [[ ! -e /config/ddclient.conf ]]; then
       cp /defaults/ddclient.conf /config
     else
       echo "Writing custom conf:"
-      cat /defaults/ddclient-desec.conf | sed "s/[domain]/$DOMAIN/g" | sed "s/[token secret]/$TOKEN_SECRET/g" > /config/ddclient.conf
+      cat /defaults/ddclient-desec.conf | sed "s/-domain-/$DOMAIN/g" | sed "s/-token secret-/$TOKEN_SECRET/g" > /config/ddclient.conf
       cat /config/ddclient.conf
     fi
 fi
